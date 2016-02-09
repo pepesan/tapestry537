@@ -14,10 +14,11 @@ import org.apache.tapestry5.alerts.AlertManager;
  */
 public class Index{
 
-        private final Random random = new Random(System.nanoTime());
+    private final Random random = new Random(System.nanoTime());
 
-        @InjectPage
-        private Guess guess;
+    @InjectPage
+    private Guess guess;
+
     @Log
     Object onActionFromStart()
     {
