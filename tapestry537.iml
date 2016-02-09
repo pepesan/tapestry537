@@ -15,6 +15,13 @@
         </sourceRoots>
       </configuration>
     </facet>
+    <facet type="tapestry" name="Tapestry">
+      <configuration>
+        <setting name="filterName" value="tapestry537" />
+        <setting name="applicationPackage" value="com.cursosdedesarrollo" />
+        <setting name="version" value="5.3.6" />
+      </configuration>
+    </facet>
   </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_5" inherit-compiler-output="false">
     <output url="file://$MODULE_DIR$/target/classes" />

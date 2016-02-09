@@ -1,6 +1,8 @@
 package com.cursosdedesarrollo.pages;
 
 import java.util.Date;
+import java.util.Random;
+
 import org.apache.tapestry5.annotations.*;
 import org.apache.tapestry5.ioc.annotations.*;
 import org.apache.tapestry5.corelib.components.*;
@@ -10,41 +12,18 @@ import org.apache.tapestry5.alerts.AlertManager;
 /**
  * Start page of application tapestry537.
  */
-public class Index
-{
-    @Property
-    @Inject
-    @Symbol(SymbolConstants.TAPESTRY_VERSION)
-    private String tapestryVersion;
+public class Index{
 
-    @InjectComponent
-    private Zone zone;
+        private final Random random = new Random(System.nanoTime());
 
-    @Persist
-    @Property
-    private int clickCount;
-
-    @Inject
-    private AlertManager alertManager;
-
-    public Date getCurrentTime()
+        @InjectPage
+        private Guess guess;
+    @Log
+    Object onActionFromStart()
     {
-        return new Date();
-    }
+        int target = random.nextInt(10) + 1;
 
-    void onActionFromIncrement()
-    {
-        alertManager.info("Increment clicked");
-
-        clickCount++;
-    }
-
-    Object onActionFromIncrementAjax()
-    {
-        clickCount++;
-
-        alertManager.info("Increment (via Ajax) clicked");
-
-        return zone;
+        guess.setup(target);
+        return guess;
     }
 }
